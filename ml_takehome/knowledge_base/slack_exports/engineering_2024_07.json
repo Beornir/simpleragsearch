@@ -1,0 +1,80 @@
+[
+  {
+    "channel": "#engineering",
+    "user": "sarah.chen",
+    "timestamp": "2024-07-15T09:32:14Z",
+    "text": "Hey team, quick update on the Aurora migration: we're on track to cut over next Saturday (July 20). Platform team has been running dual-writes for 2 weeks and data integrity checks are passing."
+  },
+  {
+    "channel": "#engineering",
+    "user": "mike.torres",
+    "timestamp": "2024-07-15T09:33:01Z",
+    "text": "Nice! What's the rollback plan if something goes wrong during cutover?"
+  },
+  {
+    "channel": "#engineering",
+    "user": "sarah.chen",
+    "timestamp": "2024-07-15T09:34:22Z",
+    "text": "We keep the old PG instance running in read-only mode for 48 hours post-cutover. If we need to rollback, we flip the DNS back and replay the write log. Recovery time: ~15 min."
+  },
+  {
+    "channel": "#engineering",
+    "user": "alex.wong",
+    "timestamp": "2024-07-15T09:35:00Z",
+    "text": "lgtm \ud83d\udc4d"
+  },
+  {
+    "channel": "#engineering",
+    "user": "jordan.lee",
+    "timestamp": "2024-07-15T09:36:45Z",
+    "text": "anyone going to the kitchen? can someone grab me a coffee lol"
+  },
+  {
+    "channel": "#engineering",
+    "user": "mike.torres",
+    "timestamp": "2024-07-15T09:37:12Z",
+    "text": "\ud83d\ude02 get your own coffee jordan"
+  },
+  {
+    "channel": "#engineering",
+    "user": "priya.patel",
+    "timestamp": "2024-07-15T09:45:00Z",
+    "text": "Team reminder: we're deprecating the old `/v1/analytics` endpoints on September 1. If your service still calls them, please migrate to `/v2/analytics` by August 15. The v2 docs are in Notion under API Migration Guide."
+  },
+  {
+    "channel": "#engineering",
+    "user": "sarah.chen",
+    "timestamp": "2024-07-15T10:02:00Z",
+    "text": "Also FYI \u2014 the new hire onboarding doc is outdated. It still references BambooHR for PTO requests. Someone should update it to reference Workday. I'll file a ticket."
+  },
+  {
+    "channel": "#engineering",
+    "user": "devops_bot",
+    "timestamp": "2024-07-15T10:15:00Z",
+    "text": "\ud83d\ude80 Deploy: api-gateway v2.14.3 rolled out to production successfully. Canary: 0.02% error rate (baseline: 0.01%). Approved."
+  },
+  {
+    "channel": "#engineering",
+    "user": "rachel.kim",
+    "timestamp": "2024-07-15T11:30:00Z",
+    "text": "Quick question \u2014 is there a standard way to add feature flags in the workflow-engine? I see some services use LaunchDarkly directly and others use the internal wrapper. What's the recommended approach?"
+  },
+  {
+    "channel": "#engineering",
+    "user": "mike.torres",
+    "timestamp": "2024-07-15T11:32:00Z",
+    "text": "Use the internal wrapper (`meridian-flags` package). It adds caching and fallback behavior on top of LD. Direct LD calls are technically fine but the wrapper is preferred for consistency."
+  },
+  {
+    "channel": "#engineering",
+    "user": "rachel.kim",
+    "timestamp": "2024-07-15T11:33:00Z",
+    "text": "Thanks Mike! Where are the docs for that?"
+  },
+  {
+    "channel": "#engineering",
+    "user": "mike.torres",
+    "timestamp": "2024-07-15T11:35:00Z",
+    "text": "uhhh... good question. I don't think we documented it properly. The README in the `meridian-flags` repo has basic usage but it's pretty sparse. I'll add it to the tech debt backlog."
+  }
+]

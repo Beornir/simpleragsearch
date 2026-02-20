@@ -1,0 +1,29 @@
+file_path,title,author,last_modified,department,status
+docs/policies/pto_policy.md,PTO Policy (Current),HR Team,2024-09-01,HR,active
+docs/policies/pto_policy_2023.md,PTO Policy,HR Team,2023-01-15,HR,active
+docs/policies/oncall_policy.md,On-Call Policy,Sarah Chen,2024-03-01,Engineering,active
+docs/policies/deploy_process.md,Deployment Process,Platform Team,2024-06-01,Engineering,active
+docs/policies/remote_work_policy.md,Remote Work Policy,People Ops,2024-04-01,HR,active
+docs/policies/expense_policy.md,Expense Policy,Finance Team,2024-01-01,Finance,active
+docs/policies/incident_response.md,Incident Response Playbook,Platform Team,2024-05-01,Engineering,active
+docs/policies/security_policy.md,Security Policy,Security Team,2024-02-01,Security,active
+docs/policies/data_retention.md,Data Retention Policy,Legal,2024-08-01,Legal,active
+docs/engineering/adr_003_database_migration.md,ADR-003: Database Migration,Sarah Chen,2024-01-15,Engineering,active
+docs/engineering/adr_003_v2_database_strategy.md,ADR-003: Database Strategy Update,Priya Patel,2024-06-01,Engineering,active
+docs/engineering/adr_007_forward_migrations.md,ADR-007: Forward-Only Migrations,Sarah Chen,2024-03-01,Engineering,active
+docs/engineering/architecture_overview.md,System Architecture,Platform Team,2024-07-01,Engineering,active
+docs/engineering/runbook_redis_failover.md,Runbook: Redis Failover,Platform Team,2024-04-01,Engineering,active
+docs/engineering/runbook_postgres_failover.md,Runbook: PostgreSQL Failover,Platform Team,2024-04-01,Engineering,active
+docs/engineering/ml_platform_guide.md,ML Platform Guide,ML Infra Team,2024-08-01,Engineering,active
+docs/engineering/api_versioning_guide.md,API Versioning Guide,Mike Torres,2024-05-15,Engineering,active
+docs/engineering/api_rate_limiting.md,API Rate Limiting,Platform Team,2024-05-01,Engineering,active
+docs/product/prd_dashboard_v2.md,PRD: Dashboard V2,Jessica Liu,2024-04-01,Product,active
+docs/product/analytics_pipeline_spec.md,Analytics Pipeline Spec,David Kim,2024-02-01,Product,active
+code/README_api_gateway.md,API Gateway README,Jordan Lee,2024-06-01,Engineering,active
+code/README_event_processor.md,Event Processor README,Sarah Chen,2024-05-01,Engineering,active
+code/README_ml_scoring.md,ML Scoring Service README,Li Wang,2024-07-01,Engineering,active
+code/README_notification_service.md,Notification Service README,,2024-03-01,Engineering,active
+code/README_legacy_analytics.md,Legacy Analytics (Deprecated),Platform Team,2024-03-01,Engineering,deprecated
+code/README_feature_store.md,Feature Store README,ML Infra Team,2024-06-01,Engineering,active
+code/README_data_privacy_service.md,Data Privacy Service README,Platform Team,2024-04-01,Engineering,active
+code/README_workflow_engine.md,Workflow Engine README,Product Team,,Engineering,active

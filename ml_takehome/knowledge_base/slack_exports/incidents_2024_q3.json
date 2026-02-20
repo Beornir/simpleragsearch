@@ -1,0 +1,86 @@
+[
+  {
+    "channel": "#incidents",
+    "user": "pagerduty_bot",
+    "timestamp": "2024-08-03T02:14:00Z",
+    "text": "\ud83d\udea8 INCIDENT DECLARED: P1 \u2014 api-gateway returning 503 errors. Error rate: 45%. Incident Commander: @alex.wong. Channel: #inc-0847"
+  },
+  {
+    "channel": "#inc-0847",
+    "user": "alex.wong",
+    "timestamp": "2024-08-03T02:16:00Z",
+    "text": "I'm IC. Investigating now. Looks like we're getting connection pool exhaustion to PostgreSQL. Current connections: 487/500."
+  },
+  {
+    "channel": "#inc-0847",
+    "user": "sarah.chen",
+    "timestamp": "2024-08-03T02:18:00Z",
+    "text": "I see it too. There's a query running for 45 minutes that's holding connections open. It's from the reporting service \u2014 looks like a customer triggered a massive export."
+  },
+  {
+    "channel": "#inc-0847",
+    "user": "alex.wong",
+    "timestamp": "2024-08-03T02:20:00Z",
+    "text": "Can we kill that query without side effects?"
+  },
+  {
+    "channel": "#inc-0847",
+    "user": "sarah.chen",
+    "timestamp": "2024-08-03T02:21:00Z",
+    "text": "Yes, it's a SELECT. Killing it now. `SELECT pg_terminate_backend(12847);`"
+  },
+  {
+    "channel": "#inc-0847",
+    "user": "sarah.chen",
+    "timestamp": "2024-08-03T02:22:00Z",
+    "text": "Query killed. Connections dropping. 487 \u2192 320 \u2192 180. Error rate falling."
+  },
+  {
+    "channel": "#inc-0847",
+    "user": "alex.wong",
+    "timestamp": "2024-08-03T02:25:00Z",
+    "text": "Confirmed. Error rate back to normal (0.01%). Keeping channel open for 30 min to monitor. Root cause: the reporting service doesn't have a query timeout configured. Need to add that."
+  },
+  {
+    "channel": "#inc-0847",
+    "user": "alex.wong",
+    "timestamp": "2024-08-03T02:55:00Z",
+    "text": "All clear. Closing incident. Post-mortem owner: @sarah.chen. Action item: add query timeout to reporting service (30 second max). Filing Jira ticket PLAT-2847."
+  },
+  {
+    "channel": "#incidents",
+    "user": "alex.wong",
+    "timestamp": "2024-08-03T02:56:00Z",
+    "text": "\u2705 INC-0847 resolved. Duration: 42 minutes. Root cause: reporting service query without timeout exhausted connection pool. Post-mortem in 3 days."
+  },
+  {
+    "channel": "#incidents",
+    "user": "pagerduty_bot",
+    "timestamp": "2024-09-12T14:30:00Z",
+    "text": "\u26a0\ufe0f INCIDENT DECLARED: P2 \u2014 ml-scoring service returning stale predictions. Model version mismatch detected. IC: @li.wang. Channel: #inc-0923"
+  },
+  {
+    "channel": "#inc-0923",
+    "user": "li.wang",
+    "timestamp": "2024-09-12T14:32:00Z",
+    "text": "Investigating. The ml-scoring service is serving churn-v2.2.0 but MLflow shows churn-v2.3.1 as the production model. Looks like the last deploy didn't pick up the new model."
+  },
+  {
+    "channel": "#inc-0923",
+    "user": "li.wang",
+    "timestamp": "2024-09-12T14:35:00Z",
+    "text": "Found it. The model reload endpoint wasn't called after the last deploy. The deploy script has a step for this but it was skipped because the deploy was a hotfix and used the expedited process. Gap in the hotfix deploy checklist."
+  },
+  {
+    "channel": "#inc-0923",
+    "user": "li.wang",
+    "timestamp": "2024-09-12T14:37:00Z",
+    "text": "Manually triggering model reload: `curl -X POST https://ml-scoring.internal/admin/reload-models`"
+  },
+  {
+    "channel": "#inc-0923",
+    "user": "li.wang",
+    "timestamp": "2024-09-12T14:38:00Z",
+    "text": "Model reloaded. Now serving churn-v2.3.1. Checking predictions against test set... looks correct. Resolving as P2 since predictions were stale but not completely wrong (v2.2.0 vs v2.3.1 difference is minor)."
+  }
+]

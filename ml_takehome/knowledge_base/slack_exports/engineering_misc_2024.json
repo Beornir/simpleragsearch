@@ -1,0 +1,44 @@
+[
+  {
+    "channel": "#engineering",
+    "user": "jordan.lee",
+    "timestamp": "2024-06-20T15:00:00Z",
+    "text": "TIL our Kafka retention is only 7 days for most topics. Almost lost some event data because I assumed it was 30 days \ud83d\ude05"
+  },
+  {
+    "channel": "#engineering",
+    "user": "sarah.chen",
+    "timestamp": "2024-06-20T15:02:00Z",
+    "text": "Yeah, only the audit topics have 30-day retention. Everything else is 7 days. It's in the architecture doc but I agree it's easy to miss."
+  },
+  {
+    "channel": "#engineering",
+    "user": "alex.wong",
+    "timestamp": "2024-06-20T15:05:00Z",
+    "text": "We should probably increase it. 7 days is tight if we need to replay events for debugging. Let me check the storage cost impact."
+  },
+  {
+    "channel": "#engineering",
+    "user": "alex.wong",
+    "timestamp": "2024-06-20T15:30:00Z",
+    "text": "Checked: increasing to 14 days for all topics would cost ~$200/month more in EBS storage. I'll propose it at the next infra review."
+  },
+  {
+    "channel": "#engineering",
+    "user": "priya.patel",
+    "timestamp": "2024-09-05T10:00:00Z",
+    "text": "Heads up: we're switching from Datadog to Grafana Cloud for metrics starting Q1 2025. Cost savings of ~$40K/year. Migration plan coming next week."
+  },
+  {
+    "channel": "#engineering",
+    "user": "mike.torres",
+    "timestamp": "2024-09-05T10:05:00Z",
+    "text": "Will our existing dashboards migrate automatically or do we need to rebuild them?"
+  },
+  {
+    "channel": "#engineering",
+    "user": "priya.patel",
+    "timestamp": "2024-09-05T10:08:00Z",
+    "text": "There's a migration tool but it covers about 70% of dashboard panels. The rest will need manual recreation. Platform team will handle the shared dashboards, individual teams handle their own."
+  }
+]

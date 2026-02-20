@@ -1,0 +1,40 @@
+services:
+
+  ingest:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./ml_takehome/knowledge_base:/data/knowledge_base:ro
+      - ./rag:/data/rag          # metadata.csv + master_tags.json are written here
+    environment:
+      - KB_PATH=/data/knowledge_base
+      - METADATA_CSV=/data/rag/metadata.csv
+      - MASTER_TAGS_JSON=/data/rag/master_tags.json
+      - LLM_BASE_URL=http://YOUR_LLM_HOST:PORT/v1   # TODO: set your LLM server URL
+      - EMBED_BASE_URL=http://YOUR_EMBED_HOST:PORT/v1 # TODO: set your embedding server URL
+    command: python3 01_ingestion/ingest.py
+    profiles: [ingest]   # run only with: docker compose --profile ingest up
+
+  search:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./ml_takehome/knowledge_base:/data/knowledge_base:ro
+      - ./rag:/data/rag          # read metadata.csv + master_tags.json
+    environment:
+      - KB_PATH=/data/knowledge_base
+      - METADATA_CSV=/data/rag/metadata.csv
+      - MASTER_TAGS_JSON=/data/rag/master_tags.json
+      - LLM_BASE_URL=http://YOUR_LLM_HOST:PORT/v1   # TODO: set your LLM server URL
+      - EMBED_BASE_URL=http://YOUR_EMBED_HOST:PORT/v1 # TODO: set your embedding server URL
+    command: python3 -m uvicorn 02_search.api:app --host 0.0.0.0 --port 8000
+    working_dir: /app
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/')"]
+      interval: 10s
+      timeout: 5s
+      retries: 3

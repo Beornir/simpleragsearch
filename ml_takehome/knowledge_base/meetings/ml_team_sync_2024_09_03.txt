@@ -1,0 +1,38 @@
+ML Team Weekly Sync — September 3, 2024
+Auto-generated transcript (unedited)
+
+[00:00] Li Wang: Hey team, let's go through our sprint updates. Maria, you want to start?
+
+[00:08] Maria Santos: Sure. Um, so I finished the v2.3.1 churn model update. The main change is, we added three new features from the feature store — account age, support ticket frequency, and login frequency trend. Offline eval shows AUC improved from 0.83 to 0.87.
+
+[00:35] Li Wang: Nice. And that's in production now right?
+
+[00:38] Maria Santos: Yes, deployed last Thursday. Online metrics look good so far, but um, we only have about a week of data. I'll have a fuller report in two weeks once we see actual churn outcomes.
+
+[00:55] Li Wang: Great. What about the anomaly detector retraining?
+
+[01:00] Maria Santos: So that's where I hit an issue actually. The weekly retraining job failed last Sunday because the feature store materialization was delayed. Feast job ran late because of that, uh, that Spark cluster issue. I had to manually retrigger it Monday morning. The model's up to date now but we should probably add better alerting for when the Feast job is late.
+
+[01:30] Li Wang: Agreed. Can you file a ticket for that? Put it in the MLINFRA project.
+
+[01:35] Maria Santos: Already done. MLINFRA-342.
+
+[01:40] Li Wang: Perfect. Okay, James, how's the event classifier work going?
+
+[01:45] James Park: Um so I've been looking at the label quality issues we discussed last week. I pulled a sample of 500 labeled events and had the team re-label them. Inter-annotator agreement is... not great. Kappa of 0.61 for the fine-grained categories. It's better for the coarse categories — 0.78 there.
+
+[02:10] Li Wang: That's concerning. What's the plan?
+
+[02:15] James Park: I think we should simplify the taxonomy. We have 24 event categories right now but some of them are really ambiguous. Like "user_engagement" versus "feature_usage" — the annotators can't consistently distinguish them. I'm going to propose merging to, um, to about 15 categories and see if agreement improves.
+
+[02:40] Li Wang: Makes sense. Talk to Jessica from product though before you merge categories — she might have opinions about which ones are important from the customer side.
+
+[02:50] James Park: Will do.
+
+[02:55] Li Wang: Okay quick thing from my side. I had a chat with Priya about our GPU situation. We're spending about $8,000 a month on SageMaker right now, mostly on the anomaly detector training. She asked if we can bring that down. I'm looking into whether we can switch to spot instances for training — we'd save about 60% but need to handle interruptions.
+
+[03:20] Li Wang: Also, quick reminder — the ml-scoring service needs to be updated to Python 3.12 by end of quarter. It's currently on 3.10 and we're standardizing. Maria, can you own that?
+
+[03:30] Maria Santos: Sure, shouldn't be too hard. I'll aim for end of September.
+
+[03:35] Li Wang: Great. Anything else? No? Okay, see you all next week.

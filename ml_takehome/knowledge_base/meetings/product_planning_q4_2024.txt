@@ -1,0 +1,22 @@
+Q4 2024 Product Planning — September 20, 2024
+Auto-generated transcript (unedited)
+
+[00:00] Jessica Liu: Alright, let's plan Q4. We have, um, three main initiatives on the product side.
+
+[00:10] Jessica Liu: First, Dashboard V2 GA. We're in beta right now with about 50 customers. Feedback has been mostly positive — the widget system is well received. Main complaint is performance on dashboards with 10+ widgets. Frontend team is working on lazy loading to address that.
+
+[00:35] Jessica Liu: Target GA date is October 1st. After GA, we have a 6-month deprecation period for V1. V1 APIs will be sunset on April 1, 2025. We need to communicate this to customers starting, like, now.
+
+[01:00] David Kim: Second initiative — the SQL editor improvements. Our power users on Professional and Enterprise plans are asking for JOINs, which, um, we currently don't support due to the ClickHouse schema. Engineering is looking at a workaround using ClickHouse's JOIN engine but there are performance concerns.
+
+[01:25] David Kim: Actually, let me be more specific. We CAN do JOINs but they're slow for large datasets. The proposal is to support JOINs with a warning when the estimated scan size exceeds 1 billion rows. And we'd increase the query timeout from 60 to 120 seconds for Professional plan customers.
+
+[01:50] Jessica Liu: Third — and this is new — we're exploring an AI-powered insights feature. The idea is, um, the system would automatically surface interesting patterns in the customer's data. Like "your conversion rate dropped 15% this week, and here's what changed." Very early stage. We're going to prototype in Q4 and see if it's viable.
+
+[02:15] Jessica Liu: Li from the ML team has been looking at this. Li, any quick thoughts?
+
+[02:20] Li Wang: Yeah, it's feasible. The hard part isn't the ML — it's defining what "interesting" means for each customer. We'd probably start with simple statistical anomaly detection on key metrics and add more sophisticated analysis over time. I'd estimate 2-3 months for an MVP.
+
+[02:45] Jessica Liu: Cool. Let's get a proper spec together by mid-October.
+
+[02:50] Jessica Liu: Okay, priorities for Q4 in order: Dashboard V2 GA, SQL editor JOINs, AI insights prototype. Everyone aligned? Great.

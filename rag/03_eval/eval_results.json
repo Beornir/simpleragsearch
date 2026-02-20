@@ -1,0 +1,1212 @@
+{
+  "summary": {
+    "total_questions": 40,
+    "evaluated": 40,
+    "errors": 0,
+    "metrics": {
+      "source_recall_avg": 0.942,
+      "contradiction_detection_rate": 1.0,
+      "abstention_rate": 0.6,
+      "answer_quality_avg_0_3": 2.725,
+      "answer_quality_pct_good": 97.5
+    },
+    "per_category": {
+      "contradictory": {
+        "n": 5,
+        "avg_recall": 0.933,
+        "avg_judge": 2.8
+      },
+      "factual": {
+        "n": 19,
+        "avg_recall": 1.0,
+        "avg_judge": 2.789
+      },
+      "multi-doc": {
+        "n": 5,
+        "avg_recall": 0.7,
+        "avg_judge": 2.6
+      },
+      "procedural": {
+        "n": 6,
+        "avg_recall": 0.917,
+        "avg_judge": 2.833
+      },
+      "unanswerable": {
+        "n": 5,
+        "avg_recall": 1.0,
+        "avg_judge": 2.4
+      }
+    },
+    "failure_count": 1
+  },
+  "results": [
+    {
+      "id": "q01",
+      "category": "factual",
+      "difficulty": "easy",
+      "question": "How many days of PTO do senior engineers (IC4-IC5) get per year?",
+      "gold_answer": "25 days per year, with up to 10 days carryover.",
+      "gold_sources": [
+        "docs/policies/pto_policy.md"
+      ],
+      "system_answer": "According to the latest PTO policy document (SOURCE 2), senior engineers (IC4-IC5) receive **25 days of PTO per year**.\n\n[Source: docs/policies/pto_policy.md]",
+      "retrieved_paths": [
+        "docs/policies/pto_policy_2023.md",
+        "docs/policies/pto_policy.md",
+        "docs/policies/oncall_policy.md",
+        "docs/policies/remote_work_policy.md",
+        "slack_exports/engineering_2024_07.json",
+        "code/README_data_privacy_service.md",
+        "slack_exports/engineering_misc_2024.json",
+        "meetings/eng_all_hands_2024_08_15.txt",
+        "docs/policies/data_retention.md",
+        "code/README_workflow_engine.md"
+      ],
+      "has_contradiction": true,
+      "source_recall": 1.0,
+      "contradiction_correct": null,
+      "abstention_correct": null,
+      "judge_score": 2,
+      "judge_reason": "The system answer provides the correct number of PTO days but omits the carryover information."
+    },
+    {
+      "id": "q02",
+      "category": "factual",
+      "difficulty": "easy",
+      "question": "What is the on-call response time requirement for P1 incidents during business hours?",
+      "gold_answer": "15 minutes during business hours (9am-6pm PT).",
+      "gold_sources": [
+        "docs/policies/oncall_policy.md"
+      ],
+      "system_answer": "The on-call response time requirement for P1 incidents during business hours is **15 minutes** [Source: docs/policies/oncall_policy.md].",
+      "retrieved_paths": [
+        "docs/policies/oncall_policy.md",
+        "docs/policies/incident_response.md",
+        "docs/engineering/runbook_postgres_failover.md",
+        "docs/policies/deploy_process.md",
+        "slack_exports/engineering_2024_07.json",
+        "slack_exports/incidents_2024_q3.json",
+        "docs/policies/pto_policy.md",
+        "docs/policies/pto_policy_2023.md",
+        "code/README_data_privacy_service.md",
+        "code/README_notification_service.md"
+      ],
+      "has_contradiction": true,
+      "source_recall": 1.0,
+      "contradiction_correct": null,
+      "abstention_correct": null,
+      "judge_score": 3,
+      "judge_reason": "The system answer correctly states the 15-minute response time for P1 incidents during business hours, matching the gold answer exactly."
+    },
+    {
+      "id": "q03",
+      "category": "factual",
+      "difficulty": "easy",
+      "question": "What database does Meridian use for analytics queries?",
+      "gold_answer": "ClickHouse. Events are ingested from Kafka with approximately 30-second delay.",
+      "gold_sources": [
+        "docs/engineering/architecture_overview.md"
+      ],
+      "system_answer": "Meridian uses **ClickHouse** for analytics queries [Source: filename 9].",
+      "retrieved_paths": [
+        "docs/engineering/adr_003_database_migration.md",
+        "docs/engineering/adr_003_v2_database_strategy.md",
+        "code/README_legacy_analytics.md",
+        "docs/engineering/adr_007_forward_migrations.md",
+        "slack_exports/incidents_2024_q3.json",
+        "docs/engineering/runbook_postgres_failover.md",
+        "code/README_feature_store.md",
+        "code/README_api_gateway.md",
+        "docs/engineering/architecture_overview.md",
+        "code/README_data_privacy_service.md"
+      ],
+      "has_contradiction": true,
+      "source_recall": 1.0,
+      "contradiction_correct": null,
+      "abstention_correct": null,
+      "judge_score": 3,
+      "judge_reason": "The system answer correctly identifies ClickHouse as the database used by Meridian for analytics queries, matching the gold answer exactly."
+    },
+    {
+      "id": "q04",
+      "category": "factual",
+      "difficulty": "easy",
+      "question": "How much is the home office stipend for new employees?",
+      "gold_answer": "$1,500 one-time stipend upon hire, plus $500/year for ongoing equipment.",
+      "gold_sources": [
+        "docs/policies/remote_work_policy.md"
+      ],
+      "system_answer": "The home office stipend for new employees is $1,500 as a one-time payment upon hire, plus an additional $500/year for ongoing equipment [Source: docs/policies/remote_work_policy.md].",
+      "retrieved_paths": [
+        "docs/policies/expense_policy_DRAFT.md",
+        "docs/policies/oncall_policy.md",
+        "docs/policies/pto_policy.md",
+        "docs/policies/pto_policy_2023.md",
+        "docs/policies/remote_work_policy.md",
+        "docs/policies/expense_policy.md",
+        "slack_exports/engineering_misc_2024.json",
+        "meetings/eng_all_hands_2024_08_15.txt",
+        "docs/engineering/adr_003_database_migration.md",
+        "docs/engineering/adr_007_forward_migrations.md"
+      ],
+      "has_contradiction": true,
+      "source_recall": 1.0,
+      "contradiction_correct": null,
+      "abstention_correct": null,
+      "judge_score": 3,
+      "judge_reason": "The system answer fully matches the gold answer with all key facts and includes the source reference."
+    },
+    {
+      "id": "q05",
+      "category": "factual",
+      "difficulty": "easy",
+      "question": "What are the rate limits for the Professional API plan?",
+      "gold_answer": "300 requests/minute, 10,000 requests/hour, burst of 50.",
+      "gold_sources": [
+        "docs/engineering/api_rate_limiting.md"
+      ],
+      "system_answer": "The rate limits for the Professional API plan are:\n\n- **Requests/minute**: 300\n- **Requests/hour**: 10,000\n- **Burst**: 50\n\n[Source: docs/engineering/api_rate_limiting.md]",
+      "retrieved_paths": [
+        "docs/engineering/api_rate_limiting.md",
+        "code/README_notification_service.md",
+        "code/README_workflow_engine.md",
+        "docs/engineering/adr_007_forward_migrations.md",
+        "code/README_legacy_analytics.md",
+        "code/README_api_gateway.md",
+        "docs/product/analytics_pipeline_spec.md",
+        "code/README_data_privacy_service.md",
+        "code/README_ml_scoring.md",
+        "docs/engineering/ml_platform_guide.md"
+      ],
+      "has_contradiction": false,
+      "source_recall": 1.0,
+      "contradiction_correct": null,
+      "abstention_correct": null,
+      "judge_score": 3,
+      "judge_reason": "The system answer fully matches the gold reference answer with all key facts correctly presented."
+    },
+    {
+      "id": "q06",
+      "category": "factual",
+      "difficulty": "easy",
+      "question": "What is the maximum expense amount that requires VP approval?",
+      "gold_answer": "Single expenses over $2,000 require VP approval. Expenses between $500-$2,000 need manager approval.",
+      "gold_sources": [
+        "docs/policies/expense_policy.md"
+      ],
+      "system_answer": "The maximum expense amount that requires VP approval is **$2,000** for a single expense [Source: docs/policies/expense_policy.md].",
+      "retrieved_paths": [
+        "docs/policies/expense_policy.md",
+        "docs/policies/expense_policy_DRAFT.md",
+        "meta/document_manifest.csv",
+        "docs/engineering/api_rate_limiting.md",
+        "docs/product/prd_dashboard_v2.md",
+        "code/README_workflow_engine.md",
+        "docs/engineering/adr_007_forward_migrations.md",
+        "slack_exports/engineering_misc_2024.json",
+        "code/README_notification_service.md",
+        "docs/policies/pto_policy.md"
+      ],
+      "has_contradiction": true,
+      "source_recall": 1.0,
+      "contradiction_correct": null,
+      "abstention_correct": null,
+      "judge_score": 2,
+      "judge_reason": "The system answer correctly identifies $2,000 as the threshold for VP approval but omits the detail about manager approval for expenses between $500 and $2,000."
+    },
+    {
+      "id": "q07",
+      "category": "factual",
+      "difficulty": "easy",
+      "question": "What is the company's parental leave policy?",
+      "gold_answer": "16 weeks paid parental leave for all new parents regardless of gender, usable within 12 months of birth or adoption. Does not count against PTO.",
+      "gold_sources": [
+        "docs/policies/pto_policy.md"
+      ],
+      "system_answer": "Meridian Technologies offers **16 weeks of paid parental leave** for all new parents, regardless of gender. This leave can be taken within **12 months** of the child's birth or adoption date and does not count against PTO [Source: doc/pto_policy.md].",
+      "retrieved_paths": [
+        "docs/policies/pto_policy_2023.md",
+        "docs/policies/pto_policy.md",
+        "docs/policies/remote_work_policy.md",
+        "docs/policies/data_retention.md",
+        "docs/policies/security_policy.md",
+        "docs/policies/expense_policy.md",
+        "docs/engineering/adr_007_forward_migrations.md",
+        "code/README_data_privacy_service.md",
+        "docs/policies/deploy_process.md",
+        "slack_exports/engineering_misc_2024.json"
+      ],
+      "has_contradiction": true,
+      "source_recall": 1.0,
+      "contradiction_correct": null,
+      "abstention_correct": null,
+      "judge_score": 3,
+      "judge_reason": "The system answer fully matches the gold reference answer with all key facts correctly presented."
+    },
+    {
+      "id": "q08",
+      "category": "factual",
+      "difficulty": "easy",
+      "question": "What ML models are currently in production at Meridian?",
+      "gold_answer": "Three models: Churn Predictor (XGBoost), Event Classifier (fine-tuned BERT), and Anomaly Detector (PyTorch autoencoder).",
+      "gold_sources": [
+        "docs/engineering/ml_platform_guide.md"
+      ],
+      "system_answer": "Meridian currently has three ML models in production:\n\n1. **Churn Predictor** - Predicts customer churn probability using XGBoost. It is served via the `ml-scoring` service with a P95 latency of 45ms.\n2. **Event Classifier** - Categorizes incoming events using a fine-tuned BERT model. It is served via the `ml-scoring` service with a P95 latency of 120ms.\n3. **Anomaly Detector** - Detects unusual patterns in metrics using PyTorch (autoencoder). It is served in batch mode via Airflow, with no P95 latency reported as it is a batch process.\n\n[Source: docs/engineering/ml_platform_guide.md]",
+      "retrieved_paths": [
+        "docs/engineering/ml_platform_guide.md",
+        "code/README_ml_scoring.md",
+        "meetings/ml_team_sync_2024_09_03.txt",
+        "docs/engineering/adr_003_database_migration.md",
+        "docs/engineering/adr_007_forward_migrations.md",
+        "code/README_event_processor.md",
+        "code/README_data_privacy_service.md",
+        "docs/engineering/adr_003_v2_database_strategy.md",
+        "slack_exports/incidents_2024_q3.json",
+        "code/README_legacy_analytics.md"
+      ],
+      "has_contradiction": true,
+      "source_recall": 1.0,
+      "contradiction_correct": null,
+      "abstention_correct": null,
+      "judge_score": 3,
+      "judge_reason": "The system answer fully matches the gold reference with all key facts and additional details."
+    },
+    {
+      "id": "q09",
+      "category": "factual",
+      "difficulty": "medium",
+      "question": "What system do we use to submit PTO requests?",
+      "gold_answer": "Workday. The company migrated from BambooHR to Workday in July 2024.",
+      "gold_sources": [
+        "docs/policies/pto_policy.md",
+        "slack_exports/engineering_2024_07.json"
+      ],
+      "system_answer": "Meridian Technologies uses **Workday** to submit PTO requests [Source: docs/policies/pto_policy.md].",
+      "retrieved_paths": [
+        "docs/policies/pto_policy_2023.md",
+        "docs/policies/pto_policy.md",
+        "slack_exports/engineering_2024_07.json",
+        "docs/engineering/adr_007_forward_migrations.md",
+        "code/README_notification_service.md",
+        "code/README_data_privacy_service.md",
+        "code/README_workflow_engine.md",
+        "code/README_ml_scoring.md",
+        "code/README_api_gateway.md",
+        "docs/policies/oncall_policy.md"
+      ],
+      "has_contradiction": true,
+      "source_recall": 1.0,
+      "contradiction_correct": null,
+      "abstention_correct": null,
+      "judge_score": 3,
+      "judge_reason": "The system answer correctly states that Workday is used for PTO requests, matching the gold answer with no hallucinations."
+    },
+    {
+      "id": "q10",
+      "category": "factual",
+      "difficulty": "medium",
+      "question": "How long are Kafka event topics retained?",
+      "gold_answer": "7 days for most topics, 30 days for audit topics.",
+      "gold_sources": [
+        "docs/engineering/architecture_overview.md",
+        "slack_exports/engineering_misc_2024.json"
+      ],
+      "system_answer": "Kafka event topics have a retention period of **7 days for most topics**, with **30-day retention only for audit topics** [Source: slack_exports/engineering_misc_2024.json]. \n\nThis information is explicitly mentioned in the engineering discussion, where it's noted that \"only the audit topics have 30-day retention. Everything else is 7 days\" [Source: slack_exports/engineering_misc_2024.json].",
+      "retrieved_paths": [
+        "slack_exports/engineering_misc_2024.json",
+        "code/README_event_processor.md",
+        "code/README_notification_service.md",
+        "docs/engineering/architecture_overview.md",
+        "code/README_data_privacy_service.md",
+        "docs/product/analytics_pipeline_spec.md",
+        "code/README_legacy_analytics.md",
+        "code/README_workflow_engine.md",
+        "code/README_feature_store.md",
+        "docs/engineering/adr_003_database_migration.md"
+      ],
+      "has_contradiction": false,
+      "source_recall": 1.0,
+      "contradiction_correct": null,
+      "abstention_correct": null,
+      "judge_score": 3,
+      "judge_reason": "The system answer accurately reflects the gold answer with the correct retention periods and includes the source reference."
+    },
+    {
+      "id": "q11",
+      "category": "factual",
+      "difficulty": "medium",
+      "question": "What is the employee referral bonus for senior+ roles?",
+      "gold_answer": "$10,000 for senior and above roles.",
+      "gold_sources": [
+        "meetings/eng_all_hands_2024_08_15.txt"
+      ],
+      "system_answer": "The employee referral bonus for senior+ roles is $10,000 [Source: meeting/eng_all_hands_2024_08_15.txt].",
+      "retrieved_paths": [
+        "docs/policies/pto_policy_2023.md",
+        "docs/policies/pto_policy.md",
+        "meetings/eng_all_hands_2024_08_15.txt",
+        "docs/policies/expense_policy.md",
+        "docs/engineering/adr_007_forward_migrations.md",
+        "docs/policies/expense_policy_DRAFT.md",
+        "docs/policies/oncall_policy.md",
+        "docs/policies/remote_work_policy.md",
+        "code/README_notification_service.md",
+        "docs/engineering/adr_003_database_migration.md"
+      ],
+      "has_contradiction": true,
+      "source_recall": 1.0,
+      "contradiction_correct": null,
+      "abstention_correct": null,
+      "judge_score": 3,
+      "judge_reason": "The system answer fully matches the gold answer with the correct bonus amount and includes a source reference."
+    },
+    {
+      "id": "q12",
+      "category": "factual",
+      "difficulty": "medium",
+      "question": "What's the process for emergency deploys during code freeze?",
+      "gold_answer": "Get verbal approval from an Engineering Manager or Director, tag PR with 'hotfix' label, CI runs but staging soak reduced to 10 minutes, canary stage skipped (direct to 100%), post-mortem required within 24 hours.",
+      "gold_sources": [
+        "docs/policies/deploy_process.md"
+      ],
+      "system_answer": "The process for emergency deploys during code freeze is as follows:\n\n1. Get verbal approval from an Engineering Manager or Director.\n2. Tag the PR with `hotfix` label.\n3. CI still runs but staging soak is reduced to 10 minutes.\n4. Canary stage is skipped — direct to 100% rollout.\n5. Post-mortem required within 24 hours.\n\n[Source: docs/policies/deploy_process.md]",
+      "retrieved_paths": [
+        "docs/policies/deploy_process.md",
+        "code/README_legacy_analytics.md",
+        "docs/engineering/adr_003_v2_database_strategy.md",
+        "docs/engineering/adr_007_forward_migrations.md",
+        "slack_exports/engineering_2024_07.json",
+        "docs/policies/oncall_policy.md",
+        "docs/policies/incident_response.md",
+        "code/README_api_gateway.md",
+        "meetings/eng_all_hands_2024_08_15.txt",
+        "docs/engineering/runbook_postgres_failover.md"
+      ],
+      "has_contradiction": false,
+      "source_recall": 1.0,
+      "contradiction_correct": null,
+      "abstention_correct": null,
+      "judge_score": 3,
+      "judge_reason": "The system answer fully matches the gold reference answer with all key facts correctly presented."
+    },
+    {
+      "id": "q13",
+      "category": "factual",
+      "difficulty": "medium",
+      "question": "How often is the churn prediction model retrained?",
+      "gold_answer": "Monthly, scheduled on the 1st of each month.",
+      "gold_sources": [
+        "docs/engineering/ml_platform_guide.md"
+      ],
+      "system_answer": "The churn prediction model is retrained monthly, as indicated in the \"Retraining Schedule\" section of SOURCE 2. The specific entry for the Churn Predictor is:\n\n| Model | Frequency | Trigger |\n|-------|-----------|---------|\n| Churn Predictor | Monthly | Scheduled (1st of month) |\n\nThis means the churn prediction model is retrained on a monthly basis, specifically on the 1st of each month. \n\n[Source: docs/engineering/ml_platform_guide.md]",
+      "retrieved_paths": [
+        "code/README_ml_scoring.md",
+        "docs/engineering/ml_platform_guide.md",
+        "meetings/ml_team_sync_2024_09_03.txt",
+        "code/README_feature_store.md",
+        "code/README_legacy_analytics.md",
+        "code/README_notification_service.md",
+        "docs/engineering/adr_007_forward_migrations.md",
+        "docs/engineering/adr_003_database_migration.md",
+        "meetings/product_planning_q4_2024.txt",
+        "code/README_data_privacy_service.md"
+      ],
+      "has_contradiction": false,
+      "source_recall": 1.0,
+      "contradiction_correct": null,
+      "abstention_correct": null,
+      "judge_score": 3,
+      "judge_reason": "The system answer fully matches the gold answer with all key facts and no hallucinations."
+    },
+    {
+      "id": "q14",
+      "category": "factual",
+      "difficulty": "medium",
+      "question": "What's the SLA for GDPR data deletion requests?",
+      "gold_answer": "Must be completed within 30 days (legal requirement). Current average completion time is about 4 hours.",
+      "gold_sources": [
+        "docs/policies/data_retention.md",
+        "code/README_data_privacy_service.md"
+      ],
+      "system_answer": "The SLA for GDPR data deletion requests is that they must be completed within **30 days** [Source: docs/policies/data_retention.md].",
+      "retrieved_paths": [
+        "code/README_data_privacy_service.md",
+        "docs/policies/data_retention.md",
+        "docs/engineering/architecture_overview.md",
+        "docs/policies/security_policy.md",
+        "slack_exports/engineering_misc_2024.json",
+        "docs/engineering/adr_003_v2_database_strategy.md",
+        "docs/engineering/adr_003_database_migration.md",
+        "docs/engineering/adr_007_forward_migrations.md",
+        "code/README_notification_service.md",
+        "code/README_legacy_analytics.md"
+      ],
+      "has_contradiction": true,
+      "source_recall": 1.0,
+      "contradiction_correct": null,
+      "abstention_correct": null,
+      "judge_score": 2,
+      "judge_reason": "The system answer correctly states the 30-day SLA but omits the additional information about the average completion time of 4 hours."
+    },
+    {
+      "id": "q15",
+      "category": "procedural",
+      "difficulty": "easy",
+      "question": "How do I declare an incident?",
+      "gold_answer": "Run /incident declare in the #incidents Slack channel. This auto-creates a Slack channel (#inc-NNNN), a Zoom bridge, a PagerDuty incident, and a Notion doc. The on-call engineer becomes Incident Commander by default.",
+      "gold_sources": [
+        "docs/policies/incident_response.md"
+      ],
+      "system_answer": "To declare an incident, follow these steps:\n\n1. Run `/incident declare` in the #incidents Slack channel\n2. This auto-creates: a Slack channel (#inc-NNNN), a Zoom bridge, a PagerDuty incident, and a Notion doc\n3. The on-call engineer for the affected service becomes the **Incident Commander** by default [Source: docs/policies/incident_response.md].",
+      "retrieved_paths": [
+        "docs/policies/incident_response.md",
+        "code/README_notification_service.md",
+        "docs/engineering/adr_007_forward_migrations.md",
+        "docs/policies/deploy_process.md",
+        "slack_exports/incidents_2024_q3.json",
+        "slack_exports/engineering_2024_07.json",
+        "meetings/eng_all_hands_2024_08_15.txt",
+        "code/README_event_processor.md",
+        "docs/policies/oncall_policy.md",
+        "code/README_api_gateway.md"
+      ],
+      "has_contradiction": false,
+      "source_recall": 1.0,
+      "contradiction_correct": null,
+      "abstention_correct": null,
+      "judge_score": 3,
+      "judge_reason": "The system answer fully matches the gold answer with all key facts and includes the source reference."
+    },
+    {
+      "id": "q16",
+      "category": "procedural",
+      "difficulty": "easy",
+      "question": "What's the process for deploying code to production?",
+      "gold_answer": "PR merged to main triggers CI, auto-deploys to staging (30 min soak with smoke tests), then canary deploy (5% traffic for 15 min), then full rollout if canary is green. Requires 2 approving reviews (1 from CODEOWNER) and all CI checks green.",
+      "gold_sources": [
+        "docs/policies/deploy_process.md"
+      ],
+      "system_answer": "The process for deploying code to production at Meridian Technologies follows a continuous deployment model with mandatory code review and staged rollouts, as outlined in the deployment process document [Source: docs/policies/deploy_process.md].\n\n### Deployment Process Steps:\n\n1. **PR Merged to main** → Triggers CI (GitHub Actions).\n2. **CI passes** → Auto-deploys to **staging** environment.\n3. **Staging soak** → Minimum 30 minutes, with automated smoke tests.\n4. **Canary deploy** → 5% of production traffic for 15 minutes.\n5. **Full rollout** → If canary metrics are green, deploy to 100%.\n\n### Requirements Before Merge:\n- At least **2 approving reviews** (1 must be from a CODEOWNER).\n- All CI checks must be green (unit tests, integration tests, linting).\n- No P1/P2 incidents currently active (deploy freeze during incidents).\n- Feature flags for any user-facing changes.\n\n### Rollback Procedure:\n- **Automatic**: If error rate exceeds 1% during canary, the deploy is auto-rolled back.\n- **Manual**: Run `meridian deploy rollback <service> --to <sha>` from the CLI. Requires on-call or team lead permissions.\n- **Database migrations**: Cannot be auto-rolled back. See ADR-007 for the forward-migration-only policy.\n\n### Emergency Deploys:\nFor P1 hotfixes during code freeze or outside business hours:\n1. Get verbal approval from an Engineering Manager or Director.\n2. Tag the PR with `hotfix` label.\n3. CI still runs but staging soak is reduced to 10 minutes.\n4. Canary stage is skipped — direct to 100% rollout.\n5. Post-mortem required within 24 hours.\n\nFor more details, refer to the full deployment process document [Source: docs/policies/deploy_process.md].",
+      "retrieved_paths": [
+        "docs/policies/deploy_process.md",
+        "docs/engineering/adr_007_forward_migrations.md",
+        "code/README_api_gateway.md",
+        "docs/engineering/architecture_overview.md",
+        "docs/engineering/ml_platform_guide.md",
+        "code/README_workflow_engine.md",
+        "code/README_notification_service.md",
+        "docs/engineering/adr_003_database_migration.md",
+        "slack_exports/engineering_misc_2024.json",
+        "docs/engineering/adr_003_v2_database_strategy.md"
+      ],
+      "has_contradiction": true,
+      "source_recall": 1.0,
+      "contradiction_correct": null,
+      "abstention_correct": null,
+      "judge_score": 3,
+      "judge_reason": "The system answer fully matches the gold reference answer with all key facts and no hallucinations."
+    },
+    {
+      "id": "q17",
+      "category": "procedural",
+      "difficulty": "medium",
+      "question": "How do I do a manual PostgreSQL failover?",
+      "gold_answer": "Verify the problem by checking connection and replication lag. If primary is unreachable and lag < 5 seconds, promote read replica with `aws rds promote-read-replica`, update Route53 DNS CNAME, then rolling restart application pods. Estimated recovery time: 15-20 minutes.",
+      "gold_sources": [
+        "docs/engineering/runbook_postgres_failover.md"
+      ],
+      "system_answer": "To perform a manual PostgreSQL failover, follow these steps based on the provided runbook:\n\n### 1. Verify the Problem\n\nCheck the connection to the primary database and replication lag:\n\n```bash\n# Check connection to primary\npsql -h meridian-db-primary.cluster-xyz.us-west-2.rds.amazonaws.com -U meridian_app -c \"SELECT 1\"\n\n# Check replication lag\naws rds describe-db-instances --db-instance-identifier meridian-db-read-1 | jq '.DBInstances[0].StatusInfos'\n```\n\nIf the primary is unreachable and replication lag is < 5 seconds, proceed with failover.\n\n### 2. Promote Read Replica\n\nPromote the read replica to primary:\n\n```bash\naws rds promote-read-replica --db-instance-identifier meridian-db-read-1\n```\n\nThis process takes approximately 5-10 minutes. Monitor the progress in the RDS console.\n\n### 3. Update DNS\n\nUpdate the CNAME record in Route53 to point to the promoted read replica:\n\n```bash\n# Update Route53 record\naws route53 change-resource-record-sets --hosted-zone-id Z1234567890 --change-batch '{\n  \"Changes\": [{\n    \"Action\": \"UPSERT\",\n    \"ResourceRecordSet\": {\n      \"Name\": \"meridian-db-primary.internal.meridian.tech\",\n      \"Type\": \"CNAME\",\n      \"TTL\": 60,\n      \"ResourceRecords\": [{\"Value\": \"meridian-db-read-1.cluster-xyz.us-west-2.rds.amazonaws.com\"}]\n    }\n  }]\n}'\n```\n\n### 4. Restart Application Pods\n\nRestart the application pods to clear stale connection pools:\n\n```bash\nkubectl rollout restart deployment api-gateway -n production\nkubectl rollout restart deployment event-processor -n production\nkubectl rollout restart deployment workflow-engine -n production\n```\n\n### 5. Verify Recovery\n\nCheck the application health and database connections:\n\n```bash\n# Check application health\ncurl https://api.meridian.tech/health\n\n# Check database connections\nkubectl exec -it deploy/api-gateway -n production -- python -c \"from app.db import engine; print(engine.execute('SELECT count(*) FROM events').scalar())\"\n```\n\n### 6. Post-Failover Actions\n\n- Create a new read replica from the promoted instance.\n- Update PagerDuty to reflect the new primary.\n- File an incident post-mortem.\n\n[Source: docs/engineering/runbook_postgres_failover.md]",
+      "retrieved_paths": [
+        "docs/engineering/runbook_postgres_failover.md",
+        "docs/engineering/adr_003_v2_database_strategy.md",
+        "docs/engineering/adr_003_database_migration.md",
+        "docs/engineering/adr_007_forward_migrations.md",
+        "slack_exports/incidents_2024_q3.json",
+        "code/README_notification_service.md",
+        "docs/engineering/architecture_overview.md",
+        "slack_exports/engineering_2024_07.json",
+        "slack_exports/engineering_misc_2024.json",
+        "code/README_data_privacy_service.md"
+      ],
+      "has_contradiction": true,
+      "source_recall": 1.0,
+      "contradiction_correct": null,
+      "abstention_correct": null,
+      "judge_score": 3,
+      "judge_reason": "The system answer fully matches the gold reference, providing all key steps with accurate commands and procedures."
+    },
+    {
+      "id": "q18",
+      "category": "procedural",
+      "difficulty": "medium",
+      "question": "How do I deploy a new ML model to production?",
+      "gold_answer": "Train and evaluate in SageMaker/notebook, register in MLflow with metrics, promote to Staging in MLflow, run automated eval suite, if metrics pass promote to Production in MLflow, then ml-scoring picks up the new version on next deploy or manual refresh via POST /admin/reload-models.",
+      "gold_sources": [
+        "docs/engineering/ml_platform_guide.md"
+      ],
+      "system_answer": "To deploy a new ML model to production at Meridian Technologies, follow these steps based on the documented process:\n\n1. **Train and evaluate the model** in SageMaker or a notebook environment.\n2. **Register the model in MLflow model registry** with relevant metrics.\n3. **Promote the model to \"Staging\"** in MLflow.\n4. **Run the automated evaluation suite** (refer to the `ml-eval/` repo).\n5. **If the metrics pass**, promote the model to \"Production\" in MLflow.\n6. **The `ml-scoring` service** will pick up the new model version on the next deploy, or you can manually refresh the model by sending a POST request to `/admin/reload-models`.\n\nThis process is outlined in the **ML Platform Guide** [Source: docs/engineering/ml_platform_guide.md].",
+      "retrieved_paths": [
+        "docs/engineering/ml_platform_guide.md",
+        "code/README_ml_scoring.md",
+        "meetings/ml_team_sync_2024_09_03.txt",
+        "docs/policies/deploy_process.md",
+        "code/README_legacy_analytics.md",
+        "code/README_notification_service.md",
+        "docs/engineering/adr_007_forward_migrations.md",
+        "code/README_data_privacy_service.md",
+        "docs/engineering/adr_003_database_migration.md",
+        "code/README_api_gateway.md"
+      ],
+      "has_contradiction": false,
+      "source_recall": 1.0,
+      "contradiction_correct": null,
+      "abstention_correct": null,
+      "judge_score": 3,
+      "judge_reason": "The system answer accurately follows the gold reference, detailing each step of deploying an ML model to production with correct processes and references."
+    },
+    {
+      "id": "q19",
+      "category": "procedural",
+      "difficulty": "medium",
+      "question": "How do I request access to a new SaaS tool for my team?",
+      "gold_answer": "Depends on the cost. Under $50/month: manager approval via Slack screenshot. $50-500/month: submit Jira IT ticket for procurement review. Over $500/month: requires Finance and Legal review via procurement@meridian.tech. If the tool handles customer data, it also needs a security review.",
+      "gold_sources": [
+        "docs/policies/expense_policy.md",
+        "docs/policies/security_policy.md"
+      ],
+      "system_answer": "To request access to a new SaaS tool for your team, you need to follow the vendor security review process outlined in the Information Security Policy:\n\n1. **Submit a request** to security-review@meridian.tech for any new SaaS vendor that will handle customer data or connect to internal systems.\n2. The security team will conduct a review, which typically takes 2-3 weeks.\n\nThis process ensures that all new SaaS tools meet the company's security requirements before they are approved for use [Source: docs/policies/security_policy.md].",
+      "retrieved_paths": [
+        "docs/engineering/adr_007_forward_migrations.md",
+        "slack_exports/engineering_misc_2024.json",
+        "docs/engineering/ml_platform_guide.md",
+        "code/README_data_privacy_service.md",
+        "docs/policies/expense_policy_DRAFT.md",
+        "meetings/product_planning_q4_2024.txt",
+        "docs/policies/security_policy.md",
+        "meetings/eng_all_hands_2024_08_15.txt",
+        "code/README_notification_service.md",
+        "docs/engineering/adr_003_database_migration.md"
+      ],
+      "has_contradiction": false,
+      "source_recall": 0.5,
+      "contradiction_correct": null,
+      "abstention_correct": null,
+      "judge_score": 2,
+      "judge_reason": "The system answer correctly mentions the security review process for SaaS tools but misses the cost-based approval steps and specific email addresses for different cost ranges as outlined in the gold answer."
+    },
+    {
+      "id": "q20",
+      "category": "procedural",
+      "difficulty": "easy",
+      "question": "What should I do if I accidentally commit a secret to Git?",
+      "gold_answer": "Immediately rotate the credential AND report to #security-incidents in Slack. Credentials should be stored in Vault (HashiCorp), never in Git.",
+      "gold_sources": [
+        "docs/policies/security_policy.md"
+      ],
+      "system_answer": "If you accidentally commit a secret to Git, you should take the following steps based on the information provided in the source documents:\n\n1. **Rotate the secret immediately**: If you suspect that a credential has been exposed, you must rotate it right away [Source: docs/policies/security_policy.md].\n\n2. **Report the incident**: Notify the security team by reporting the incident to #security-incidents in Slack or via email to security@meridian.tech. Do not attempt to investigate the incident on your own — the security team will coordinate the response [Source: docs/policies/security_policy.md].\n\n3. **Do not commit secrets to Git in the future**: Ensure that secrets are never committed to Git. Use Vault (HashiCorp) for all secrets management [Source: docs/policies/security_policy.md].",
+      "retrieved_paths": [
+        "docs/engineering/adr_007_forward_migrations.md",
+        "slack_exports/engineering_misc_2024.json",
+        "meta/document_manifest.csv",
+        "code/README_api_gateway.md",
+        "docs/engineering/adr_003_database_migration.md",
+        "slack_exports/engineering_2024_07.json",
+        "meetings/eng_all_hands_2024_08_15.txt",
+        "docs/policies/security_policy.md",
+        "docs/engineering/adr_003_v2_database_strategy.md",
+        "docs/engineering/ml_platform_guide.md"
+      ],
+      "has_contradiction": true,
+      "source_recall": 1.0,
+      "contradiction_correct": null,
+      "abstention_correct": null,
+      "judge_score": 3,
+      "judge_reason": "The system answer fully matches the gold reference answer with all key facts and proper sources."
+    },
+    {
+      "id": "q21",
+      "category": "contradictory",
+      "difficulty": "medium",
+      "question": "How many PTO days do junior engineers (IC1-IC3) get?",
+      "gold_answer": "There is a contradiction in the knowledge base. The current policy (September 2024) says 20 days with 5 days carryover. The older policy (January 2023) says 18 days with 3 days carryover. The September 2024 policy should be considered authoritative as it is newer and explicitly states it replaces the previous policy.",
+      "gold_sources": [
+        "docs/policies/pto_policy.md",
+        "docs/policies/pto_policy_2023.md"
+      ],
+      "system_answer": "According to the latest PTO policy, junior engineers (IC1-IC3) receive **20 days** of PTO per year [Source: docs/policies/pto_policy.md].",
+      "retrieved_paths": [
+        "docs/policies/pto_policy_2023.md",
+        "docs/policies/pto_policy.md",
+        "docs/policies/oncall_policy.md",
+        "docs/policies/remote_work_policy.md",
+        "slack_exports/incidents_2024_q3.json",
+        "code/README_workflow_engine.md",
+        "slack_exports/engineering_misc_2024.json",
+        "code/README_data_privacy_service.md",
+        "docs/engineering/adr_003_v2_database_strategy.md",
+        "meetings/eng_all_hands_2024_08_15.txt"
+      ],
+      "has_contradiction": true,
+      "source_recall": 1.0,
+      "contradiction_correct": true,
+      "abstention_correct": null,
+      "judge_score": 3,
+      "judge_reason": "The system answer correctly states the current PTO policy of 20 days for junior engineers, aligning with the authoritative September 2024 policy mentioned in the gold answer."
+    },
+    {
+      "id": "q22",
+      "category": "contradictory",
+      "difficulty": "hard",
+      "question": "What is the current database migration strategy? Are we using Citus sharding for all tables?",
+      "gold_answer": "There is a contradiction between two ADRs. ADR-003 (January 2024) planned full Citus sharding in 3 phases. ADR-003 v2 (June 2024) paused the migration after Phase 1 and pivoted to Aurora PostgreSQL for remaining tables. The events table remains on Citus, but Phase 2 and Phase 3 of the original sharding plan are cancelled. The v2 ADR should be considered current.",
+      "gold_sources": [
+        "docs/engineering/adr_003_database_migration.md",
+        "docs/engineering/adr_003_v2_database_strategy.md"
+      ],
+      "system_answer": "Based on the source documents, the current database migration strategy has evolved from the original Citus sharding plan outlined in ADR-003. As of June 2024, the team has paused the Citus migration after Phase 1 and is adopting a different approach:\n\n1. The **`events` table** remains on Citus (already migrated and working well).\n2. **Other tables** are being moved to **Amazon Aurora PostgreSQL** with read replicas, rather than continuing with sharding.\n3. A **read/write splitting layer** using PgBouncer is being implemented.\n4. Full sharding has been deferred to 2025 for further evaluation of alternatives like CockroachDB or PlanetScale.\n\nTherefore, **we are not using Citus sharding for all tables**. Only the `events` table is currently sharded using Citus, while other tables are being migrated to Aurora PostgreSQL. \n\n[Sources: docs/engineering/adr_003_v2_database_strategy.md, docs/engineering/architecture_overview.md]",
+      "retrieved_paths": [
+        "docs/engineering/adr_003_database_migration.md",
+        "docs/engineering/adr_003_v2_database_strategy.md",
+        "docs/engineering/adr_007_forward_migrations.md",
+        "slack_exports/engineering_2024_07.json",
+        "docs/engineering/runbook_postgres_failover.md",
+        "slack_exports/engineering_misc_2024.json",
+        "code/README_legacy_analytics.md",
+        "docs/engineering/architecture_overview.md",
+        "meetings/eng_all_hands_2024_08_15.txt",
+        "code/README_feature_store.md"
+      ],
+      "has_contradiction": true,
+      "source_recall": 1.0,
+      "contradiction_correct": true,
+      "abstention_correct": null,
+      "judge_score": 3,
+      "judge_reason": "The system answer accurately reflects the contradiction between ADR-003 and ADR-003 v2, correctly states that only the events table is on Citus, others are moving to Aurora, and mentions the pause in sharding."
+    },
+    {
+      "id": "q23",
+      "category": "contradictory",
+      "difficulty": "medium",
+      "question": "How many sick days do employees get?",
+      "gold_answer": "There is a contradiction. The current PTO policy (2024) says 10 sick days per year with a doctor's note required after 3 consecutive days. The old PTO policy (2023) says 8 sick days per year with a doctor's note required after 5 consecutive days. The 2024 policy should be authoritative.",
+      "gold_sources": [
+        "docs/policies/pto_policy.md",
+        "docs/policies/pto_policy_2023.md"
+      ],
+      "system_answer": "Employees receive **10 sick days per year** according to the most recent policy document [Source: docs/policies/pto_policy.md].",
+      "retrieved_paths": [
+        "docs/policies/pto_policy_2023.md",
+        "docs/policies/pto_policy.md",
+        "docs/policies/oncall_policy.md",
+        "docs/policies/remote_work_policy.md",
+        "docs/policies/expense_policy.md",
+        "docs/policies/data_retention.md",
+        "code/README_workflow_engine.md",
+        "code/README_data_privacy_service.md",
+        "docs/policies/expense_policy_DRAFT.md",
+        "docs/engineering/api_rate_limiting.md"
+      ],
+      "has_contradiction": true,
+      "source_recall": 1.0,
+      "contradiction_correct": true,
+      "abstention_correct": null,
+      "judge_score": 3,
+      "judge_reason": "The system answer correctly states the 2024 policy of 10 sick days, aligning with the gold answer's conclusion."
+    },
+    {
+      "id": "q24",
+      "category": "contradictory",
+      "difficulty": "medium",
+      "question": "What is the parental leave policy? Is it the same for both parents?",
+      "gold_answer": "There is a contradiction. The 2024 policy says 16 weeks paid leave for all parents regardless of gender. The 2023 policy says 12 weeks for primary caregivers and 4 weeks for secondary caregivers. The 2024 policy is current and explicitly equalizes leave for all parents.",
+      "gold_sources": [
+        "docs/policies/pto_policy.md",
+        "docs/policies/pto_policy_2023.md"
+      ],
+      "system_answer": "Meridian Technologies offers **16 weeks of paid parental leave** for all new parents, regardless of gender. This policy applies to both primary and secondary caregivers, and the leave can be taken within 12 months of the child's birth or adoption date [Source: doc/pto_policy.md].",
+      "retrieved_paths": [
+        "docs/policies/pto_policy_2023.md",
+        "docs/policies/pto_policy.md",
+        "docs/engineering/adr_007_forward_migrations.md",
+        "docs/policies/deploy_process.md",
+        "docs/policies/remote_work_policy.md",
+        "docs/policies/data_retention.md",
+        "docs/policies/security_policy.md",
+        "slack_exports/engineering_misc_2024.json",
+        "docs/policies/oncall_policy.md",
+        "docs/policies/expense_policy.md"
+      ],
+      "has_contradiction": true,
+      "source_recall": 1.0,
+      "contradiction_correct": true,
+      "abstention_correct": null,
+      "judge_score": 3,
+      "judge_reason": "The system answer correctly states the 2024 policy of 16 weeks for all parents, including both primary and secondary caregivers, aligning with the gold answer."
+    },
+    {
+      "id": "q25",
+      "category": "contradictory",
+      "difficulty": "hard",
+      "question": "What monitoring tool does Meridian use — Datadog or Grafana?",
+      "gold_answer": "Currently Datadog, but the company is migrating to Grafana Cloud in Q1 2025 to save ~$40K/year. During transition, both will run in parallel for one month. As of the latest information, the migration has not started yet.",
+      "gold_sources": [
+        "docs/engineering/architecture_overview.md",
+        "slack_exports/engineering_misc_2024.json",
+        "meetings/eng_all_hands_2024_08_15.txt"
+      ],
+      "system_answer": "Meridian uses both Datadog and Grafana for monitoring, but they serve different purposes:\n\n- **Datadog** is used for metrics, traces, and alerting. Examples include:\n  - Monitoring metrics like `privacy.deletion.completed` and `privacy.deletion.pending` [Source: code/README_data_privacy_service.md].\n  - Tracking API rate limiting metrics like `api.rate_limit.rejected` [Source: docs/engineering/api_rate_limiting.md].\n  - Monitoring ML model performance metrics in the `ml.model.*` namespace [Source: docs/engineering/ml_platform_guide.md].\n\n- **Grafana** is used for dashboards, such as:\n  - The \"Data Privacy SLAs\" dashboard [Source: code/README_data_privacy_service.md].\n  - The \"API Rate Limiting\" dashboard [Source: docs/engineering/api_rate_limiting.md].\n  - A transition is underway to move to **Grafana Cloud** for metrics starting in Q1 2025, with a migration plan in progress [Source: slack_exports/engineering_misc_2024.json].\n\nIn summary, both tools are in use, with Datadog focusing on real-time metrics and alerting, and Grafana providing visualization through dashboards.",
+      "retrieved_paths": [
+        "code/README_data_privacy_service.md",
+        "docs/engineering/architecture_overview.md",
+        "docs/engineering/api_rate_limiting.md",
+        "slack_exports/engineering_misc_2024.json",
+        "docs/engineering/ml_platform_guide.md",
+        "code/README_event_processor.md",
+        "slack_exports/incidents_2024_q3.json",
+        "docs/engineering/adr_003_database_migration.md",
+        "docs/engineering/adr_003_v2_database_strategy.md",
+        "code/README_legacy_analytics.md"
+      ],
+      "has_contradiction": true,
+      "source_recall": 0.6666666666666666,
+      "contradiction_correct": true,
+      "abstention_correct": null,
+      "judge_score": 2,
+      "judge_reason": "The system answer correctly identifies that Meridian uses both Datadog and Grafana, and mentions the migration to Grafana Cloud in Q1 2025. However, it lacks specific details about the $40K/year savings and the parallel operation for one month as stated in the gold answer."
+    },
+    {
+      "id": "q26",
+      "category": "multi-doc",
+      "difficulty": "hard",
+      "question": "What happens when a P1 incident occurs during a deploy?",
+      "gold_answer": "The deploy process states there's a deploy freeze during P1 incidents (only the fix itself is allowed). The incident response playbook says the on-call engineer becomes IC, must acknowledge within 15 minutes, and status page must be updated within 15 minutes. If the P1 requires a hotfix deploy, the emergency deploy process applies: verbal EM/Director approval, hotfix label, reduced 10-min staging soak, skip canary.",
+      "gold_sources": [
+        "docs/policies/deploy_process.md",
+        "docs/policies/incident_response.md"
+      ],
+      "system_answer": "When a P1 incident occurs during a deploy, the following steps are taken based on the policies and procedures outlined in the source documents:\n\n1. **Deploy Freeze During Incidents**: According to the deployment process document (Source 2), during a P1 incident, the deploy freeze policy applies. Specifically, \"During P1 incidents | Affected service | The fix itself\" is the only exception. This means that deployments are generally paused during a P1 incident, except for the specific fix that is being worked on.\n\n2. **Emergency Deploy Procedures**: If an emergency deploy is required during a P1 incident (e.g., for a hotfix), the following steps apply:\n   - **Verbal approval** is required from an Engineering Manager or Director.\n   - The PR must be tagged with the `hotfix` label.\n   - The CI process still runs, but the staging soak time is reduced to 10 minutes.\n   - The canary stage is skipped, and the deploy goes directly to 100% rollout.\n   - A post-mortem is required within 24 hours.\n\n3. **Incident Response**: If a P1 incident occurs during a deploy, the incident response playbook (Source 1) applies. The Incident Commander (IC) is assigned, and the incident is declared via the `/incident declare` command in Slack. The IC coordinates the response, and the Communications Lead updates stakeholders every 30 minutes. The status page is updated within 15 minutes, and external communication is sent within 30 minutes.\n\n4. **Post-Incident Process**: After the incident is resolved, a post-mortem is required within 3 business days (Source 1). The post-mortem must include a summary, timeline, root cause, contributing factors, action items, and lessons learned. The post-mortem is blameless, focusing on systemic improvements rather than individual errors.\n\nIn summary, during a P1 incident, deployments are generally paused, but emergency hotfixes can proceed under strict guidelines. The incident response and post-mortem processes are activated to ensure rapid resolution and systemic learning. [Sources: docs/policies/deploy_process.md, docs/policies/incident_response.md]",
+      "retrieved_paths": [
+        "docs/policies/incident_response.md",
+        "docs/policies/deploy_process.md",
+        "slack_exports/incidents_2024_q3.json",
+        "docs/engineering/adr_007_forward_migrations.md",
+        "docs/policies/oncall_policy.md",
+        "code/README_notification_service.md",
+        "docs/engineering/adr_003_v2_database_strategy.md",
+        "code/README_event_processor.md",
+        "docs/engineering/ml_platform_guide.md",
+        "docs/engineering/adr_003_database_migration.md"
+      ],
+      "has_contradiction": true,
+      "source_recall": 1.0,
+      "contradiction_correct": null,
+      "abstention_correct": null,
+      "judge_score": 3,
+      "judge_reason": "The system answer accurately reflects the gold answer with all key facts, no hallucinations."
+    },
+    {
+      "id": "q27",
+      "category": "multi-doc",
+      "difficulty": "hard",
+      "question": "What's the full journey of a customer event from ingestion to being visible in the dashboard?",
+      "gold_answer": "Customer sends event via SDK/API → api-gateway validates, authenticates, rate-limits → event published to Kafka topic events.ingest → event-processor consumes, enriches (GeoIP, user-agent parsing), deduplicates, writes to ClickHouse → data appears in dashboard within ~60 seconds (product SLA). Real-time dashboard auto-refreshes every 30 seconds.",
+      "gold_sources": [
+        "docs/engineering/architecture_overview.md",
+        "code/README_event_processor.md",
+        "docs/product/analytics_pipeline_spec.md"
+      ],
+      "system_answer": "The full journey of a customer event from ingestion to visibility in the dashboard involves several steps, as outlined in the source documents:\n\n1. **Event Ingestion**: The customer sends events via the JavaScript SDK, REST API, or server-side SDKs. These events are ingested by the system [Source: docs/product/analytics_pipeline_spec.md].\n\n2. **Event Processing**: The events are consumed by the `event-processor` service, which processes, enriches, and stores them in ClickHouse. This includes schema validation, deduplication, GeoIP enrichment, and user-agent parsing. If the event matches a workflow, it is also sent to the `workflows.trigger` Kafka topic [Source: code/README_event_processor.md].\n\n3. **Data Storage**: The processed events are stored in ClickHouse, where they are available for querying. The data retention period depends on the customer's plan (13 months for Starter, 25 months for Professional/Enterprise) [Source: docs/product/analytics_pipeline_spec.md].\n\n4. **Dashboard Visibility**: The events appear in the analytics dashboard within approximately 60 seconds (target SLA). The dashboard allows customers to view and analyze their data through widgets, query builders, and SQL editors [Source: docs/product/analytics_pipeline_spec.md].\n\n5. **Real-Time Updates**: The dashboard refreshes every 30 seconds, and customers can also use the SQL editor (available on Professional+ plans) to query their data directly [Source: docs/product/analytics_pipeline_spec.md].\n\nThis completes the journey of a customer event from ingestion to visibility in the dashboard.",
+      "retrieved_paths": [
+        "docs/product/analytics_pipeline_spec.md",
+        "code/README_event_processor.md",
+        "slack_exports/engineering_misc_2024.json",
+        "code/README_notification_service.md",
+        "docs/product/prd_dashboard_v2.md",
+        "code/README_feature_store.md",
+        "code/README_ml_scoring.md",
+        "code/README_legacy_analytics.md",
+        "docs/engineering/ml_platform_guide.md",
+        "docs/engineering/adr_003_database_migration.md"
+      ],
+      "has_contradiction": false,
+      "source_recall": 0.6666666666666666,
+      "contradiction_correct": null,
+      "abstention_correct": null,
+      "judge_score": 3,
+      "judge_reason": "The system answer accurately captures all key steps from ingestion to dashboard visibility, matching the gold answer's details without hallucinations."
+    },
+    {
+      "id": "q28",
+      "category": "multi-doc",
+      "difficulty": "hard",
+      "question": "How does the ML churn prediction model get its features, and how are those features kept up to date?",
+      "gold_answer": "Features come from the Feast feature store. Key features include account_age_days, monthly_active_users, support_tickets_last_30d, and login_frequency_trend. The online store (Redis) is materialized daily at 4:00 AM PT from the offline store (S3/Parquet). The churn model itself is retrained monthly. If the Feast materialization job fails, features become stale — this has happened before (the Spark cluster issue mentioned in the ML team sync).",
+      "gold_sources": [
+        "docs/engineering/ml_platform_guide.md",
+        "code/README_feature_store.md",
+        "meetings/ml_team_sync_2024_09_03.txt"
+      ],
+      "system_answer": "The ML churn prediction model gets its features from the **Feast feature store**, which integrates with various data sources. Specifically, the features used by the churn predictor include:\n\n- `account_age_days`\n- `monthly_active_users`\n- `support_tickets_last_30d`\n- `login_frequency_trend`\n\nThese features are defined in the **Feast feature store**, which is managed in the `feature-store` repository. The feature store materializes features from their sources (such as PostgreSQL, ClickHouse, and others) into an **online store (Redis)** for real-time serving and an **offline store (S3/Parquet)** for training.\n\n### How Features Are Kept Up to Date:\n- **Online store (Redis)**: Features are materialized daily at 4:00 AM PT using the `feast materialize-incremental` command. This ensures that the features used by the `ml-scoring` service are updated regularly for real-time predictions.\n- **Offline store (S3/Parquet)**: The offline store contains full historical feature data, which is used for training and retraining the models. The feature definitions and materialization jobs are maintained in the `feature-store` repo.\n\nThe feature store is part of the broader ML infrastructure, and updates to feature definitions or data sources are reflected in the model's input features through the Feast system [Source: code/README_feature_store.md, docs/engineering/ml_platform_guide.md].\n\nIf there are issues with stale features (e.g., due to failed materialization jobs), the team is advised to check the Airflow DAG `feast_materialize_daily` and manually retrigger materialization if needed [Source: code/README_feature_store.md].",
+      "retrieved_paths": [
+        "docs/engineering/ml_platform_guide.md",
+        "code/README_feature_store.md",
+        "code/README_ml_scoring.md",
+        "meetings/ml_team_sync_2024_09_03.txt",
+        "docs/product/analytics_pipeline_spec.md",
+        "docs/engineering/architecture_overview.md",
+        "slack_exports/incidents_2024_q3.json",
+        "slack_exports/engineering_misc_2024.json",
+        "code/README_data_privacy_service.md",
+        "code/README_legacy_analytics.md"
+      ],
+      "has_contradiction": false,
+      "source_recall": 1.0,
+      "contradiction_correct": null,
+      "abstention_correct": null,
+      "judge_score": 3,
+      "judge_reason": "The system answer accurately describes the features from the Feast feature store, their materialization process, and the retraining schedule, matching the gold answer."
+    },
+    {
+      "id": "q29",
+      "category": "multi-doc",
+      "difficulty": "medium",
+      "question": "What are all the different ways an employee's access to internal systems is managed and reviewed?",
+      "gold_answer": "All systems use Okta SSO with MFA required. Engineers with production access need hardware keys (YubiKey). Access reviews are conducted quarterly — managers must re-certify reports' access. Elevated access expires after 30 days unless renewed. Principle of least privilege applies. Specific access requests: SageMaker via IT ticket (MLINFRA project), MLflow via SSO, feature store write access for ML team only.",
+      "gold_sources": [
+        "docs/policies/security_policy.md",
+        "docs/engineering/ml_platform_guide.md"
+      ],
+      "system_answer": "Employee access to internal systems is managed and reviewed through the following mechanisms:\n\n1. **Single Sign-On (SSO)**: All internal systems use **Okta SSO**. No local accounts are permitted [Source: docs/policies/security_policy.md].\n\n2. **Multi-Factor Authentication (MFA)**: **MFA is required** on all accounts. Engineers with production access must use **hardware keys (YubiKey)** [Source: docs/policies/security_policy.md].\n\n3. **Access Reviews**: **Quarterly access reviews** are conducted. Managers must re-certify their reports' access [Source: docs/policies/security_policy.md].\n\n4. **Principle of Least Privilege**: Employees are required to **request only the access they need**. Elevated access expires after **30 days** unless renewed [Source: docs/policies/security_policy.md].\n\n5. **Data Classification**: Access to data is governed by its classification level:\n   - **Public**: No restrictions.\n   - **Internal**: Can be shared company-wide but not externally.\n   - **Confidential**: Requires encryption at rest and in transit.\n   - **Restricted**: Highly sensitive data (e.g., PII, credentials) must be encrypted, access-logged, and not stored locally [Source: docs/policies/security_policy.md].\n\n6. **Vendor Security Reviews**: Any new SaaS vendor that will handle customer data or connect to internal systems must pass a **security review**. Requests are filed at **security-review@meridian.tech** [Source: docs/policies/security_policy.md].\n\n7. **Incident Reporting**: Security incidents must be reported to **#security-incidents in Slack** or **security@meridian.tech**. Employees are instructed **not to investigate on their own** [Source: docs/policies/security_policy.md].",
+      "retrieved_paths": [
+        "docs/policies/security_policy.md",
+        "docs/engineering/adr_007_forward_migrations.md",
+        "docs/policies/pto_policy.md",
+        "docs/policies/pto_policy_2023.md",
+        "meetings/eng_all_hands_2024_08_15.txt",
+        "code/README_workflow_engine.md",
+        "slack_exports/engineering_misc_2024.json",
+        "docs/engineering/adr_003_database_migration.md",
+        "slack_exports/engineering_2024_07.json",
+        "code/README_notification_service.md"
+      ],
+      "has_contradiction": true,
+      "source_recall": 0.5,
+      "contradiction_correct": null,
+      "abstention_correct": null,
+      "judge_score": 2,
+      "judge_reason": "The system answer includes most key points but adds extra details not in the gold answer, like data classification and vendor security reviews."
+    },
+    {
+      "id": "q30",
+      "category": "multi-doc",
+      "difficulty": "hard",
+      "question": "What is the complete backup and disaster recovery strategy?",
+      "gold_answer": "Database backups: daily snapshots retained 30 days, weekly snapshots retained 6 months, stored in AWS S3 us-west-2 with cross-region replication to us-east-1, encrypted with AES-256 via AWS KMS. For PostgreSQL failover: promote read replica, update DNS, restart pods (15-20 min recovery). Full restore from backup: 2-4 hours. Infrastructure is on AWS with us-west-2 primary and us-east-1 DR.",
+      "gold_sources": [
+        "docs/policies/data_retention.md",
+        "docs/engineering/runbook_postgres_failover.md",
+        "docs/engineering/architecture_overview.md"
+      ],
+      "system_answer": "The complete backup and disaster recovery strategy at Meridian Technologies includes several components based on the source documents:\n\n1. **Database Failover and Recovery**:\n   - The **runbook for PostgreSQL failover** outlines a manual process for failing over to a read replica if the primary PostgreSQL instance becomes unhealthy. This includes promoting a read replica, updating DNS records, restarting application pods, and verifying recovery [Source: docs/engineering/runbook_postgres_failover.md].\n   - In case of a failover, the old primary instance is kept in read-only mode for 48 hours, allowing for potential rollback by flipping the DNS back and replaying the write log. The recovery time in such a scenario is approximately 15 minutes [Source: slack_exports/engineering_2024_07.json].\n\n2. **Database Migration Strategy**:\n   - The **forward-only migration policy** ensures that all database migrations are designed to be irreversible, with any \"undo\" requiring a new forward migration. This reduces the risk of data incompatibility during rollbacks [Source: docs/engineering/adr_007_forward_migrations.md].\n   - For breaking changes, an **expand/contract pattern** is used, where the new schema is deployed alongside the old one, followed by data backfilling and eventual cleanup [Source: docs/engineering/adr_007_forward_migrations.md].\n\n3. **Incident Response and Recovery**:\n   - The **incident response playbook** includes procedures for declaring and managing incidents, with specific roles and responsibilities for the Incident Commander, Technical Lead, Communications Lead, and Scribe. It also outlines communication templates for internal and external updates [Source: docs/policies/incident_response.md].\n   - Post-incident processes include a **post-mortem review** to document the incident, root cause, and action items, ensuring continuous improvement of the system's resilience [Source: docs/policies/incident_response.md].\n\n4. **Data Privacy and Deletion**:\n   - The **data-privacy-service** handles data deletion and export requests, ensuring compliance with GDPR and CCPA. It orchestrates the deletion of data across all data stores, with an SLA of completing deletion requests within 30 days [Source: code/README_data_privacy_service.md].\n\n5. **Monitoring and Alerting**:\n   - Monitoring tools such as **Grafana** and **Datadog** are used to track the status of services and data integrity. Alerts are set up to notify teams if any data deletion or export request exceeds the SLA [Source: code/README_data_privacy_service.md].\n\n6. **Kafka Data Retention**:\n   - Kafka topics have a default retention period of 7 days, with plans to increase it to 14 days to allow for better debugging and event replay [Source: slack_exports/engineering_misc_2024.json].\n\nThese components collectively form the backup and disaster recovery strategy at Meridian Technologies, ensuring data integrity, system resilience, and compliance with regulatory requirements.",
+      "retrieved_paths": [
+        "docs/engineering/adr_007_forward_migrations.md",
+        "docs/engineering/adr_003_v2_database_strategy.md",
+        "docs/engineering/adr_003_database_migration.md",
+        "docs/engineering/runbook_postgres_failover.md",
+        "code/README_data_privacy_service.md",
+        "code/README_notification_service.md",
+        "slack_exports/engineering_2024_07.json",
+        "docs/policies/incident_response.md",
+        "slack_exports/incidents_2024_q3.json",
+        "slack_exports/engineering_misc_2024.json"
+      ],
+      "has_contradiction": true,
+      "source_recall": 0.3333333333333333,
+      "contradiction_correct": null,
+      "abstention_correct": null,
+      "judge_score": 2,
+      "judge_reason": "The system answer covers key aspects of the backup and disaster recovery strategy but lacks specific details about database backup retention periods, encryption, and infrastructure setup compared to the gold answer."
+    },
+    {
+      "id": "q31",
+      "category": "unanswerable",
+      "difficulty": "medium",
+      "question": "What is the company's policy on using personal devices for work?",
+      "gold_answer": "The knowledge base does not contain a comprehensive BYOD policy. The security policy mentions that 'No company data on personal devices unless using the approved MDM (Jamf)' but does not provide a full personal device policy. The remote work policy lists standard-issue equipment but doesn't address personal device use in detail.",
+      "gold_sources": [],
+      "system_answer": "According to the information security policy, company data should not be stored on personal devices unless they are managed by the approved MDM (Mobile Device Management) solution, which is Jamf. The policy states: \"No company data on personal devices unless using the approved MDM (Jamf).\" [Source: docs/policies/security_policy.md]",
+      "retrieved_paths": [
+        "docs/policies/remote_work_policy.md",
+        "docs/policies/security_policy.md",
+        "docs/policies/data_retention.md",
+        "docs/policies/pto_policy_2023.md",
+        "docs/policies/pto_policy.md",
+        "docs/policies/oncall_policy.md",
+        "docs/policies/expense_policy.md",
+        "docs/engineering/adr_007_forward_migrations.md",
+        "docs/policies/expense_policy_DRAFT.md",
+        "docs/policies/deploy_process.md"
+      ],
+      "has_contradiction": true,
+      "source_recall": 1.0,
+      "contradiction_correct": null,
+      "abstention_correct": false,
+      "judge_score": 2,
+      "judge_reason": "The system answer correctly states the MDM requirement but omits the mention that the knowledge base lacks a comprehensive BYOD policy and that the remote work policy doesn't address personal devices in detail."
+    },
+    {
+      "id": "q32",
+      "category": "unanswerable",
+      "difficulty": "easy",
+      "question": "What is the company's revenue and how many customers do we have?",
+      "gold_answer": "Revenue information is not in the knowledge base. The architecture overview mentions approximately 2,000 active tenants, but actual revenue figures are not documented in any available document.",
+      "gold_sources": [],
+      "system_answer": "I don't have enough information to answer this question based on the available knowledge base.",
+      "retrieved_paths": [
+        "code/README_workflow_engine.md",
+        "code/README_data_privacy_service.md",
+        "code/README_notification_service.md",
+        "docs/engineering/api_rate_limiting.md",
+        "slack_exports/engineering_misc_2024.json",
+        "code/README_api_gateway.md",
+        "docs/engineering/architecture_overview.md",
+        "code/README_ml_scoring.md",
+        "slack_exports/incidents_2024_q3.json",
+        "docs/engineering/ml_platform_guide.md"
+      ],
+      "has_contradiction": false,
+      "source_recall": 1.0,
+      "contradiction_correct": null,
+      "abstention_correct": true,
+      "judge_score": 3,
+      "judge_reason": "The system answer correctly states that there's not enough information, aligning with the gold answer which mentions revenue isn't in the knowledge base and customer numbers are unspecified."
+    },
+    {
+      "id": "q33",
+      "category": "unanswerable",
+      "difficulty": "easy",
+      "question": "What is the process for getting promoted at Meridian?",
+      "gold_answer": "The knowledge base does not contain information about the promotion process, career ladders, or performance review procedures.",
+      "gold_sources": [],
+      "system_answer": "I don't have enough information to answer this question based on the available knowledge base.",
+      "retrieved_paths": [
+        "docs/product/prd_dashboard_v2.md",
+        "docs/policies/pto_policy_2023.md",
+        "docs/engineering/adr_007_forward_migrations.md",
+        "docs/engineering/adr_003_v2_database_strategy.md",
+        "docs/policies/remote_work_policy.md",
+        "docs/policies/pto_policy.md",
+        "docs/engineering/adr_003_database_migration.md",
+        "meetings/eng_all_hands_2024_08_15.txt",
+        "docs/policies/oncall_policy.md",
+        "code/README_event_processor.md"
+      ],
+      "has_contradiction": true,
+      "source_recall": 1.0,
+      "contradiction_correct": null,
+      "abstention_correct": true,
+      "judge_score": 3,
+      "judge_reason": "The system answer correctly states that there's not enough information, matching the gold reference."
+    },
+    {
+      "id": "q34",
+      "category": "unanswerable",
+      "difficulty": "hard",
+      "question": "How do I set up the Redis failover runbook?",
+      "gold_answer": "While a Redis failover runbook is listed in the document manifest, the actual file does not exist in the knowledge base. Only the PostgreSQL failover runbook is available. The manifest entry appears to be an error or the document was never created.",
+      "gold_sources": [],
+      "system_answer": "I don't have enough information to answer this question based on the available knowledge base. None of the provided source documents specifically address a Redis failover runbook. The documents mention Redis in the context of being a cache for session data, feature flags, and rate limiting, but they do not provide procedures for handling Redis failover.",
+      "retrieved_paths": [
+        "docs/engineering/runbook_postgres_failover.md",
+        "docs/engineering/architecture_overview.md",
+        "docs/engineering/adr_003_v2_database_strategy.md",
+        "docs/engineering/adr_007_forward_migrations.md",
+        "code/README_data_privacy_service.md",
+        "docs/engineering/adr_003_database_migration.md",
+        "code/README_legacy_analytics.md",
+        "code/README_notification_service.md",
+        "code/README_feature_store.md",
+        "docs/engineering/ml_platform_guide.md"
+      ],
+      "has_contradiction": true,
+      "source_recall": 1.0,
+      "contradiction_correct": null,
+      "abstention_correct": true,
+      "judge_score": 3,
+      "judge_reason": "The system answer accurately states that there's no specific Redis failover runbook available, aligning with the gold answer."
+    },
+    {
+      "id": "q35",
+      "category": "unanswerable",
+      "difficulty": "hard",
+      "question": "What is the API versioning strategy and guidelines?",
+      "gold_answer": "While an 'API Versioning Guide' is listed in the document manifest (authored by Mike Torres), the actual file does not exist in the knowledge base. Some versioning information can be inferred — v1/v2 API endpoints are mentioned in several docs, and the Dashboard V2 PRD mentions maintaining backward compatibility for 6 months — but there is no comprehensive versioning guide.",
+      "gold_sources": [],
+      "system_answer": "The API versioning strategy at Meridian Technologies is based on the following guidelines:\n\n1. **Versioning via URL Path**: API versions are denoted in the URL path, such as `/v1/` or `/v2/`. For example, the new dashboard API is accessible at `/v2/dashboard` [Source: SOURCE 10].\n\n2. **Backward Compatibility**: When introducing new versions, the old API (e.g., `/v1/`) is maintained for a period to ensure backward compatibility. For instance, the `/v1/dashboard` API will remain available for 6 months during the Dashboard V2 rollout [Source: SOURCE 10].\n\n3. **Feature Flags for Gradual Rollout**: New API versions may be feature-flagged (e.g., `dashboard-v2` in LaunchDarkly) to enable gradual rollout to beta customers before a full release [Source: SOURCE 10].\n\n4. **Deprecation Process**: Deprecated APIs are not immediately removed. For example, the `/v1/analytics` endpoints will be deprecated on September 1, with a migration deadline of August 15 [Source: SOURCE 7].\n\n5. **No Downgrades**: The system does not support downgrading to older API versions once a service has moved to a newer version. This aligns with the forward-only migration strategy for database changes, which emphasizes writing new migrations rather than rolling back [Source: SOURCE 1].\n\nIn summary, Meridian uses URL-based versioning, maintains backward compatibility during transitions, and employs feature flags for controlled rollouts. Deprecated APIs are phased out after a defined timeline [Sources: SOURCE 1, SOURCE 7, SOURCE 10].",
+      "retrieved_paths": [
+        "docs/engineering/adr_007_forward_migrations.md",
+        "docs/engineering/api_rate_limiting.md",
+        "code/README_api_gateway.md",
+        "code/README_workflow_engine.md",
+        "slack_exports/incidents_2024_q3.json",
+        "code/README_legacy_analytics.md",
+        "slack_exports/engineering_2024_07.json",
+        "code/README_ml_scoring.md",
+        "code/README_notification_service.md",
+        "docs/product/prd_dashboard_v2.md"
+      ],
+      "has_contradiction": false,
+      "source_recall": 1.0,
+      "contradiction_correct": null,
+      "abstention_correct": false,
+      "judge_score": 1,
+      "judge_reason": "The system answer provides some relevant information but lacks key facts from the gold answer, such as the absence of a comprehensive versioning guide and the mention of the Dashboard V2 PRD's 6-month backward compatibility."
+    },
+    {
+      "id": "q36",
+      "category": "factual",
+      "difficulty": "hard",
+      "question": "What caused the most recent P1 incident and how was it resolved?",
+      "gold_answer": "On August 3, 2024, the api-gateway returned 503 errors with a 45% error rate. Root cause: the reporting service ran a query for 45 minutes without a timeout, exhausting the PostgreSQL connection pool (487/500 connections). Resolution: killed the long-running query, connections recovered. Action item: add 30-second query timeout to the reporting service (Jira ticket PLAT-2847).",
+      "gold_sources": [
+        "slack_exports/incidents_2024_q3.json"
+      ],
+      "system_answer": "The most recent P1 incident was caused by the reporting service executing a query without a timeout, which led to connection pool exhaustion in PostgreSQL. The query, triggered by a customer's massive export, held connections open for 45 minutes, causing the connection pool to reach its limit of 487/500 connections. This resulted in the api-gateway returning 503 errors to users [Source: slack_exports/incidents_2024_q3.json].\n\nThe incident was resolved by terminating the problematic query using the command `SELECT pg_terminate_backend(12847);`, which immediately reduced the number of active connections. The error rate dropped from 45% to 0.01% within minutes. The root cause was identified as the lack of a query timeout configuration in the reporting service, and an action item was created to add a 30-second maximum query timeout [Source: slack_exports/incidents_2024_q3.json].",
+      "retrieved_paths": [
+        "slack_exports/incidents_2024_q3.json",
+        "docs/policies/incident_response.md",
+        "code/README_event_processor.md",
+        "docs/engineering/adr_007_forward_migrations.md",
+        "code/README_notification_service.md",
+        "docs/engineering/adr_003_v2_database_strategy.md",
+        "docs/engineering/adr_003_database_migration.md",
+        "docs/policies/pto_policy.md",
+        "code/README_legacy_analytics.md",
+        "meetings/ml_team_sync_2024_09_03.txt"
+      ],
+      "has_contradiction": true,
+      "source_recall": 1.0,
+      "contradiction_correct": null,
+      "abstention_correct": null,
+      "judge_score": 3,
+      "judge_reason": "The system answer fully matches the gold reference with all key facts, including the cause, resolution, and action item."
+    },
+    {
+      "id": "q37",
+      "category": "factual",
+      "difficulty": "hard",
+      "question": "What are the known issues with the event classifier model's training data?",
+      "gold_answer": "Inter-annotator agreement is low — Cohen's Kappa of 0.61 for fine-grained categories (0.78 for coarse categories). The team has 24 event categories but some are ambiguous (e.g., 'user_engagement' vs 'feature_usage'). The plan is to simplify the taxonomy from 24 to about 15 categories to improve agreement. This needs to be coordinated with the product team.",
+      "gold_sources": [
+        "meetings/ml_team_sync_2024_09_03.txt"
+      ],
+      "system_answer": "The known issues with the event classifier model's training data include:\n\n- The inter-annotator agreement for the fine-grained categories is not great, with a Kappa of 0.61. This indicates that there is some inconsistency among the annotators in labeling the events [Source: meetings/ml_team_sync_2024_09_03.txt]. \n- There is a suggestion to simplify the taxonomy, as some categories are ambiguous and the annotators have difficulty consistently distinguishing them, such as \"user_engagement\" versus \"feature_usage\" [Source: meetings/ml_team_sync_2024_09_03.txt].",
+      "retrieved_paths": [
+        "code/README_ml_scoring.md",
+        "code/README_feature_store.md",
+        "docs/engineering/ml_platform_guide.md",
+        "code/README_event_processor.md",
+        "slack_exports/incidents_2024_q3.json",
+        "meetings/ml_team_sync_2024_09_03.txt",
+        "docs/engineering/architecture_overview.md",
+        "code/README_legacy_analytics.md",
+        "docs/product/analytics_pipeline_spec.md",
+        "docs/engineering/adr_007_forward_migrations.md"
+      ],
+      "has_contradiction": false,
+      "source_recall": 1.0,
+      "contradiction_correct": null,
+      "abstention_correct": null,
+      "judge_score": 3,
+      "judge_reason": "The system answer accurately captures all key facts from the gold answer without any hallucinations."
+    },
+    {
+      "id": "q38",
+      "category": "factual",
+      "difficulty": "medium",
+      "question": "What are the Q4 2024 product priorities?",
+      "gold_answer": "In priority order: (1) Dashboard V2 GA (target October 1), (2) SQL editor JOIN support for Professional+ customers, (3) AI-powered insights feature prototype. The AI insights feature is in very early stage — the ML team estimates 2-3 months for an MVP.",
+      "gold_sources": [
+        "meetings/product_planning_q4_2024.txt"
+      ],
+      "system_answer": "The Q4 2024 product priorities, as discussed in the product planning meeting, are:\n\n1. **Dashboard V2 GA** – The goal is to launch Dashboard V2 on October 1, 2024. This includes addressing performance issues with dashboards that have 10+ widgets through frontend optimizations like lazy loading. V1 APIs will be deprecated by April 1, 2025 [Source: meetings/product_planning_q4_2024.txt].\n\n2. **SQL Editor Improvements** – Supporting JOINs in the SQL editor for Professional and Enterprise plan customers, with a warning for large datasets and increased query timeout. This is a key feature for power users [Source: meetings/product_planning_q4_2024.txt].\n\n3. **AI-Powered Insights Prototype** – Exploring an AI feature that automatically surfaces interesting patterns in customer data. This is in the early prototype phase and will be evaluated for viability in Q4 [Source: meetings/product_planning_q4_2024.txt].",
+      "retrieved_paths": [
+        "meetings/product_planning_q4_2024.txt",
+        "docs/engineering/adr_007_forward_migrations.md",
+        "docs/engineering/adr_003_v2_database_strategy.md",
+        "docs/product/prd_dashboard_v2.md",
+        "meetings/eng_all_hands_2024_08_15.txt",
+        "docs/engineering/adr_003_database_migration.md",
+        "docs/policies/deploy_process.md",
+        "docs/engineering/ml_platform_guide.md",
+        "slack_exports/engineering_misc_2024.json",
+        "code/README_legacy_analytics.md"
+      ],
+      "has_contradiction": true,
+      "source_recall": 1.0,
+      "contradiction_correct": null,
+      "abstention_correct": null,
+      "judge_score": 3,
+      "judge_reason": "The system answer accurately lists the Q4 2024 priorities in the correct order with all key details, including the early stage of the AI insights feature and the timeline for Dashboard V2."
+    },
+    {
+      "id": "q39",
+      "category": "factual",
+      "difficulty": "hard",
+      "question": "What's the recommended way to use feature flags in services?",
+      "gold_answer": "Use the internal wrapper package called 'meridian-flags' rather than calling LaunchDarkly directly. The wrapper adds caching and fallback behavior. Direct LaunchDarkly calls are technically fine but the wrapper is preferred for consistency. Note: the documentation for meridian-flags is sparse — the README has basic usage only.",
+      "gold_sources": [
+        "slack_exports/engineering_2024_07.json"
+      ],
+      "system_answer": "The recommended way to use feature flags in services at Meridian Technologies is to use the internal wrapper package `meridian-flags` [Source: slack_exports/engineering_2024_07.json]. This package provides caching and fallback behavior on top of LaunchDarkly (LD). While direct LD calls are technically acceptable, the `meridian-flags` wrapper is preferred for consistency across services.",
+      "retrieved_paths": [
+        "docs/engineering/adr_007_forward_migrations.md",
+        "code/README_notification_service.md",
+        "code/README_feature_store.md",
+        "docs/engineering/architecture_overview.md",
+        "code/README_api_gateway.md",
+        "docs/policies/deploy_process.md",
+        "slack_exports/engineering_2024_07.json",
+        "code/README_workflow_engine.md",
+        "docs/engineering/ml_platform_guide.md",
+        "code/README_ml_scoring.md"
+      ],
+      "has_contradiction": false,
+      "source_recall": 1.0,
+      "contradiction_correct": null,
+      "abstention_correct": null,
+      "judge_score": 3,
+      "judge_reason": "The system answer accurately reflects the gold answer, mentioning the use of 'meridian-flags' wrapper, caching, fallback, and preference over direct LaunchDarkly calls."
+    },
+    {
+      "id": "q40",
+      "category": "factual",
+      "difficulty": "hard",
+      "question": "What's the current status of the expense policy changes being proposed?",
+      "gold_answer": "There is a draft expense policy proposing changes: meal per diem increase from $75 to $100/day, conference limit raised from 2 to 3 per year, and a new $200/month budget for AI/ML tools. The draft is pending Finance approval, expected December 2024, with potential effective date of January 1, 2025. This is NOT current policy — it's a draft.",
+      "gold_sources": [
+        "docs/policies/expense_policy_DRAFT.md"
+      ],
+      "system_answer": "The proposed expense policy changes are in **draft status** and have not yet been approved. The draft was last updated in November 2024 and is pending **Finance approval** [Source: docs/policies/expense_policy_DRAFT.md]. If approved, the changes would take effect on **January 1, 2025**.",
+      "retrieved_paths": [
+        "docs/policies/expense_policy_DRAFT.md",
+        "docs/policies/expense_policy.md",
+        "docs/policies/pto_policy.md",
+        "docs/policies/pto_policy_2023.md",
+        "docs/engineering/adr_007_forward_migrations.md",
+        "slack_exports/engineering_misc_2024.json",
+        "docs/engineering/adr_003_database_migration.md",
+        "code/README_ml_scoring.md",
+        "docs/engineering/ml_platform_guide.md",
+        "docs/policies/security_policy.md"
+      ],
+      "has_contradiction": true,
+      "source_recall": 1.0,
+      "contradiction_correct": null,
+      "abstention_correct": null,
+      "judge_score": 2,
+      "judge_reason": "The system answer correctly states the draft status and pending Finance approval, but omits specific details like the meal per diem increase, conference limit, and AI/ML budget."
+    }
+  ]
+}

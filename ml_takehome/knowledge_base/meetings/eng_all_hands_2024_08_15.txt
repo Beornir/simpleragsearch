@@ -1,0 +1,28 @@
+Engineering All-Hands Meeting — August 15, 2024
+Auto-generated transcript (unedited)
+
+[00:00] Priya Patel: Okay let's get started. Um, thanks everyone for joining. A few updates today.
+
+[00:15] Priya Patel: First, the Aurora migration is complete. Sarah and the platform team, uh, finished the cutover last month and it's been running smoothly. We're seeing about 30% improvement in read query latency, which is, um, which is great.
+
+[00:42] Priya Patel: Second thing, headcount update. We've been approved for 4 new engineering hires in Q4. Two for the platform team, one for ML infra, and one for frontend. If you know great people, please refer them. We pay $5,000 referral bonuses and, um, I think we increased that to $7,500 for senior+ roles.
+
+[01:15] Sarah Chen: Quick correction — the referral bonus for senior+ is actually $10,000 now. HR updated it last month.
+
+[01:22] Priya Patel: Oh right, thanks Sarah. $10,000 for senior and above. Okay.
+
+[01:30] Priya Patel: Third, we're starting a new initiative called "Tech Health Score." Each team will... um... will assess their services across five dimensions: reliability, scalability, code quality, documentation, and security. The scores will help us prioritize tech debt work. More details coming from Mike next week.
+
+[02:05] Mike Torres: Yeah, I'll send out the scorecard template by Friday. The first assessment is due end of September. It's self-reported but we'll do cross-team calibration in October.
+
+[02:20] Unknown Speaker: [inaudible] ...question about the new monitoring...
+
+[02:25] Priya Patel: Sorry, can you repeat that? You were breaking up.
+
+[02:28] Alex Wong: I was asking about the Grafana Cloud migration timeline. Is that still Q1 2025?
+
+[02:35] Priya Patel: Yes, Q1 2025 is the target. We'll run Datadog and Grafana in parallel for one month during the transition. Nobody needs to do anything yet — Platform team will communicate when it's time to start migrating dashboards.
+
+[03:00] Priya Patel: Last thing — reminder that the Q4 code freeze starts December 15 this year. Plan your releases accordingly. Any big features should be merged by December 10 to give time for the staging soak.
+
+[03:20] Priya Patel: Questions? No? Okay, great. Thanks everyone. Next all-hands is September 19th.
